@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+HW1/Hw1/Hw1/Debug/vc142.pdb
+HW1/Hw1/Hw1/Debug/Hw1.exe.recipe
+*.opendb
+*.db
