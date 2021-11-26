@@ -1,10 +1,5 @@
 #include "Product.h"
 
-const char* categoryStr[] = { "Children",
-		"Electricity",
-		"Office",
-		"Clothing" };
-
 Product::Product(Category category,
 	const char* name,
 	double price)

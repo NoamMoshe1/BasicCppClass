@@ -9,8 +9,6 @@ Costumer::Costumer(const User& user, int productSize) : user(user)
 
 Costumer::~Costumer()
 {
-	for (int i = 0; i < productsAmount; i++)
-		delete products[i];
 	delete[] products;
 }
 
@@ -37,7 +35,7 @@ void Costumer::print() const
 {
 	std::cout << "Costumer: ";
 	user.print();
-	std::cout << "Products: " << productsAmount << "Products." << std::endl;
+	std::cout << "Products: " << productsAmount << " Products." << std::endl;
 	double totalPrice = 0;
 	for (int i = 0; i < productsAmount; i++)
 	{
@@ -63,4 +61,5 @@ bool Costumer::removeProducts()
 {
 	this->products = new Product * [this->productsSize];
 	this->productsAmount = 0;
+	return true;
 }

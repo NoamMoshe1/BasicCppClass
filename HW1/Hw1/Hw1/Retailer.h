@@ -12,6 +12,7 @@ public:
 	Retailer(const Retailer& other) = delete;
 	~Retailer();
 	bool addProduct(Product* product);
+	Product* getProduct(int ProductIndex);
 	void print() const;
 	//TODO do we need more functions?
 

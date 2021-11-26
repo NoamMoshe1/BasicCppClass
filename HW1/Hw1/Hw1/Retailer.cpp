@@ -26,6 +26,14 @@ bool Retailer::addProduct(Product* product)
 	return true;
 }
 
+Product* Retailer::getProduct(int ProductIndex)
+{
+	if ((ProductIndex > productsAmount)
+		|| (ProductIndex < 0))
+		return nullptr;
+	return products[ProductIndex];
+}
+
 void Retailer::print() const
 {
 	std::cout << "Retailer: ";
@@ -33,7 +41,7 @@ void Retailer::print() const
 	std::cout << "Products: " << std::endl;
 	for (int i = 0; i < productsAmount; i++)
 	{
-		std::cout << i + 1 << ": ";
+		std::cout << i << ": ";
 		products[i]->print();
 	}
 }

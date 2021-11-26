@@ -18,10 +18,11 @@ public:
 	bool addCostumer(Costumer* costumer);
 	bool addRetailer(Retailer* retailer);
 	bool addProductToRetailer(int retailerIndex, Product* product);
-	bool addProductToCostumer(int costumerIndex, Product* product);
+	bool addProductToCostumer(int costumerIndex, int retailerIndex, int productIndex);
 	bool payment(int costumerIndex);
 	void printRetailers() const;
 	void printCostumers() const;
+
 	//TODO do we need more functions?
 
 private:

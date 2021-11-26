@@ -4,13 +4,22 @@
 #include <string.h>
 #include <iostream>
 
+static const char* categoryStr[] = { "Children",
+		"Electricity",
+		"Office",
+		"Clothing" };
+
+enum class Category {
+	CHILDREN,
+	ELECTRICITY,
+	OFFICE,
+	CLOTHING,
+	CATEGORY_END
+};
+
 class Product
 {
 public:
-	enum class Category{CHILDREN,
-		ELECTRICITY,
-		OFFICE,
-		CLOTHING};
 	Product(Category category,
 		const char* name,
 		double price);

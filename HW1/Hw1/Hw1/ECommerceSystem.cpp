@@ -60,6 +60,7 @@ bool ECommerceSystem::addRetailer(Retailer* retailer)
 			return false;
 	retailers[retailersAmount] = retailer;
 	retailersAmount++;
+	retailer->print();
 	return true;
 }
 
@@ -76,15 +77,22 @@ bool ECommerceSystem::addProductToRetailer(int retailerIndex, Product* product)
 	return retailers[retailerIndex]->addProduct(product);
 }
 
-bool ECommerceSystem::addProductToCostumer(int costumerIndex, Product* product)
+bool ECommerceSystem::addProductToCostumer(int costumerIndex, int retailerIndex, int productIndex)
 {
-	if (product == nullptr)
-		return false;
 	if (costumers == nullptr)
 		return false;
 	if (costumerIndex >= costumersAmount)
 		return false;
 	if (costumers[costumerIndex] == nullptr)
+		return false;
+	if (retailers == nullptr)
+		return false;
+	if (retailerIndex >= retailersAmount)
+		return false;
+	if (retailers[retailerIndex] == nullptr)
+		return false;
+	Product* product = retailers[retailerIndex]->getProduct(productIndex);
+	if (product == nullptr)
 		return false;
 	return costumers[costumerIndex]->addProduct(product);
 }
@@ -100,6 +108,7 @@ bool ECommerceSystem::payment(int costumerIndex)
 	Order* order = costumers[costumerIndex]->payment();
 	if (order == nullptr)
 		return false;
+	order->print();
 	return addOrder(order);
 }
 
@@ -109,7 +118,7 @@ void ECommerceSystem::printRetailers() const
 	std::cout << "Retailers: " << std::endl;
 	for (int i = 0; i < retailersAmount; i++)
 	{
-		std::cout << i + 1 << ": ";
+		std::cout << i << ": ";
 		retailers[i]->print();
 	}
 }
@@ -120,7 +129,7 @@ void ECommerceSystem::printCostumers() const
 	std::cout << "Costumers: " << std::endl;
 	for (int i = 0; i < costumersAmount; i++)
 	{
-		std::cout << i + 1 << ": ";
+		std::cout << i << ": ";
 		costumers[i]->print();
 	}
 }
