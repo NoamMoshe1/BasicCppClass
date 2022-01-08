@@ -1,0 +1,25 @@
+﻿  Address.cpp
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Address.cpp(10,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Address.cpp(13,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Address.cpp(15,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Address.cpp(21,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Address.cpp(24,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Address.cpp(26,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Costumer.cpp
+  ECommerceSystem.cpp
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\ECommerceSystem.cpp(10,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Hw2.cpp
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Hw2.cpp(149,65): error C2661: 'Product::Product': no overloaded function takes 3 arguments
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Hw2.cpp(151,5): error C2664: 'bool ECommerceSystem::addProductToRetailer(int,int)': cannot convert argument 2 from 'Product *' to 'int'
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Hw2.cpp(151,58): message : There is no context in which this conversion is possible
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\ECommerceSystem.h(22,7): message : see declaration of 'ECommerceSystem::addProductToRetailer'
+  Order.cpp
+  Product.cpp
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\Product.cpp(14,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Retailer.cpp
+  User.cpp
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\User.cpp(9,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\User.cpp(11,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\User.cpp(17,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Git\BasicCppClass\HW1\‏‏Hw2\Hw2\User.cpp(19,2): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Generating Code...

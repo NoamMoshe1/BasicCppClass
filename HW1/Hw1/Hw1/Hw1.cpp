@@ -1,5 +1,7 @@
-// Hw1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Submitted to Keren Kalif
+// ------------------------------------------------------------
+//Cpp H.W Part 1 --------- Noam Moshe 311463228 ---------------
+//-------------------------------------------------------------
 #include <iostream>
 #include "ECommerceSystem.h"
 enum OPTIONS {
