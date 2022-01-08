@@ -5,23 +5,15 @@
 #include <string.h>
 #include <iostream>
 
-class Retailer
+class Retailer : public User
 {
 public:
-	Retailer(const User& user, int productSize = 10);
-	Retailer(const Retailer& other) = delete;
-	~Retailer();
-	bool addProduct(Product* product);
-	Product* getProduct(int productId);
-	void print() const;
+	Retailer(const char* userName,
+		const char* userPassword,
+		const Address& address);
+	virtual ~Retailer();
+	void print(std::ostream& os) const override;
 	friend std::ostream& operator<<(std::ostream& os, const Retailer& retailer);
-
-private:
-	User user;
-	Product** products;
-	int productsAmount;
-	int productsSize;
-	bool resizeProducts();
 };
 
 #endif // __RETAILER_H

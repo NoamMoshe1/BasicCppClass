@@ -26,15 +26,25 @@ public:
 		double price);
 	Product(const Product& other) = delete;
 	~Product();
-	void print() const;
 	double getPrice() const;
 	int getId() const;
+
+	virtual void print() const;
+	virtual void print(std::ostream& os) const;
+	friend std::ostream& operator<<(std::ostream& os, const Product& product);
 
 private:
 	Category category;
 	char* name;
 	double price;
 	int id;
+
+};
+
+struct Item
+{
+	Product* product;
+	int retailerIndex;
 
 };
 

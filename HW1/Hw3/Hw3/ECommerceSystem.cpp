@@ -8,10 +8,10 @@ ECommerceSystem::ECommerceSystem(const char* name,
 {
 	this->name = new char[strlen(name) + 1];
 	strcpy(this->name, name);
-	this->costumers = new Costumer* [costumersSize];
+	this->costumers = new User* [costumersSize];
 	this->costumersAmount = 0;
 	this->costumersSize = costumersSize;
-	this->retailers = new Retailer* [retailersSize];
+	this->retailers = new User * [retailersSize];
 	this->retailersAmount = 0;
 	this->retailersSize = retailersSize;
 	this->orders = new Order* [ordersSize];
@@ -42,7 +42,7 @@ ECommerceSystem::~ECommerceSystem()
 	delete[] products;
 }
 
-bool ECommerceSystem::addCostumer(Costumer* costumer)
+bool ECommerceSystem::addCostumer(User* costumer)
 {
 	if (costumer == nullptr)
 	{
@@ -64,7 +64,7 @@ bool ECommerceSystem::operator+=(Costumer* costumer)
 	return addCostumer(costumer);
 }
 
-bool ECommerceSystem::addRetailer(Retailer* retailer)
+bool ECommerceSystem::addRetailer(User* retailer)
 {
 	if (retailer == nullptr)
 		return false;
@@ -114,7 +114,7 @@ bool ECommerceSystem::addProductToRetailer(int retailerIndex, int productIndex)
 	if (productsAmount + 1 == productsSize)
 		if (resizeProducts() == false)
 			return false;
-	return retailers[retailerIndex]->addProduct(products[productIndex]);
+	return retailers[retailerIndex]->addProduct(products[productIndex], retailerIndex);
 }
 
 bool ECommerceSystem::addProductToCostumer(int costumerIndex, int retailerIndex, int productId)
@@ -145,7 +145,7 @@ bool ECommerceSystem::payment(int costumerIndex)
 		return false;
 	if (costumers[costumerIndex] == nullptr)
 		return false;
-	Order* order = costumers[costumerIndex]->payment();
+	Order* order = getCostumer(costumerIndex)->payment();
 	if (order == nullptr)
 		return false;
 	order->print();
@@ -164,25 +164,27 @@ bool ECommerceSystem::compareCostumers(int leftCostumerIndex, int rightCostumerI
 		return false;
 	if (costumers[rightCostumerIndex] == nullptr)
 		return false;
-	if (*costumers[leftCostumerIndex] < *costumers[rightCostumerIndex])
+	Costumer& leftCostumer = *getCostumer(leftCostumerIndex);
+	Costumer& rightCostumer = *getCostumer(rightCostumerIndex);
+	if (leftCostumer < rightCostumer)
 	{
-		std::cout << *costumers[leftCostumerIndex] << std::endl;
+		std::cout << leftCostumer << std::endl;
 		std::cout << "total cart price is smaller than" << std::endl;
-		std::cout << *costumers[rightCostumerIndex] << std::endl;
+		std::cout << rightCostumer << std::endl;
 	}
 	else
 	{
-		if (*costumers[leftCostumerIndex] == *costumers[rightCostumerIndex])
+		if (leftCostumer == rightCostumer)
 		{
-			std::cout << *costumers[leftCostumerIndex] << std::endl;
+			std::cout << leftCostumer << std::endl;
 			std::cout << "total cart price is equal to" << std::endl;
-			std::cout << *costumers[rightCostumerIndex] << std::endl;
+			std::cout << rightCostumer << std::endl;
 		}
 		else
 		{
-			std::cout << *costumers[leftCostumerIndex] << std::endl;
+			std::cout << leftCostumer << std::endl;
 			std::cout << "total cart price is bigger than" << std::endl;
-			std::cout << *costumers[rightCostumerIndex] << std::endl;
+			std::cout << rightCostumer << std::endl;
 		}
 	}
 	return true;
@@ -235,7 +237,7 @@ bool ECommerceSystem::resizeProducts()
 
 bool ECommerceSystem::resizeCostumers()
 {
-	Costumer** biggerCostumers = new Costumer * [2 * costumersSize];
+	User** biggerCostumers = new User * [2 * costumersSize];
 	for (int i = 0; i < costumersAmount; i++)
 		biggerCostumers[i] = costumers[i];
 	costumersSize *= 2;
@@ -246,7 +248,7 @@ bool ECommerceSystem::resizeCostumers()
 
 bool ECommerceSystem::resizeRetailers()
 {
-	Retailer** biggerRetailers = new Retailer * [2 * retailersSize];
+	User** biggerRetailers = new User * [2 * retailersSize];
 	for (int i = 0; i < retailersAmount; i++)
 		biggerRetailers[i] = retailers[i];
 	retailersSize *= 2;
@@ -276,4 +278,13 @@ bool ECommerceSystem::addOrder(Order* order)
 	orders[ordersAmount] = order;
 	ordersAmount++;
 	return true;
+}
+
+Costumer* ECommerceSystem::getCostumer(int costumerIndex)
+{
+	return reinterpret_cast<Costumer*>(costumers[costumerIndex]);
+}
+Retailer* ECommerceSystem::getRetailer(int retailerIndex)
+{
+	return reinterpret_cast<Retailer*>(retailers[retailerIndex]);
 }

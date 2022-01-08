@@ -97,10 +97,9 @@ void addCostumer(ECommerceSystem& eCommerceSystem, bool withOperator = false)
 	std::cin >> state;
 	//create costumer
 	Costumer* costumer = new Costumer(
-		User(
 			name,
 			password,
-			Address(street, buildingNumber, city, state)));
+			Address(street, buildingNumber, city, state));
 	//activate ecommerce function
 	if (withOperator)
 	{
@@ -139,10 +138,9 @@ void addRetailer(ECommerceSystem& eCommerceSystem, bool withOperator = false)
 	std::cin >> state;
 	//create retailer
 	Retailer* retailer = new Retailer(
-		User(
 			name,
 			password,
-			Address(street, buildingNumber, city, state)));
+			Address(street, buildingNumber, city, state));
 	//activate ecommerce function
 	if (withOperator)
 	{
@@ -218,7 +216,7 @@ int main()
 {
 	std::cout << "Hello eCommerce system!, please enter the name:" << std::endl;
 	char name[MAX_STRING];
-	std::cin >> name;
+	std::cin.getline(name, MAX_STRING);
 	ECommerceSystem eCommerceSystem(name);
 	while (true)
 	{

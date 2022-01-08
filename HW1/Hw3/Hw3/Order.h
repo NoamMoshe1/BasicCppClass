@@ -5,13 +5,6 @@
 #include <string.h>
 #include <iostream>
 
-struct Item
-{
-	Product* product;
-	int retailerIndex;
-
-};
-
 class Order
 {
 public:

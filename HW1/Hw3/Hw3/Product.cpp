@@ -17,11 +17,22 @@ Product::~Product()
 	delete[] name;
 }
 
-void Product::print() const
+void Product::print(std::ostream& os) const
 {
-	std::cout << "Product " << id << ": " << name
+	os << "Product " << id << ": " << name
 		<< ", Category: " << categoryStr[(int)category] 
 		<< ", Price: " << price << "NIS" << std::endl;
+}
+
+void Product::print() const
+{
+	print(std::cout);
+}
+
+std::ostream& operator<<(std::ostream& os, const Product& product)
+{
+	product.print(os);
+	return os;
 }
 
 double Product::getPrice() const

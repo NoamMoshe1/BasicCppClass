@@ -16,9 +16,9 @@ public:
 		int	productsSize = 10);
 	ECommerceSystem(const ECommerceSystem& other) = delete;
 	~ECommerceSystem();
-	bool addCostumer(Costumer* costumer);
+	bool addCostumer(User* costumer);
 	bool operator+=(Costumer* costumer);
-	bool addRetailer(Retailer* retailer);
+	bool addRetailer(User* retailer);
 	bool operator+=(Retailer* retailer);
 	bool addProduct(Product* product);
 	
@@ -38,11 +38,11 @@ private:
 	int productsAmount;
 	int productsSize;
 	bool resizeProducts();
-	Costumer** costumers;
+	User** costumers;
 	int costumersAmount;
 	int costumersSize;
 	bool resizeCostumers();
-	Retailer** retailers;
+	User** retailers;
 	int retailersAmount;
 	int retailersSize;
 	bool resizeRetailers();
@@ -51,6 +51,9 @@ private:
 	int ordersSize;
 	bool resizeOrders();
 	bool addOrder(Order* order);
+
+	Costumer* getCostumer(int costumerIndex);
+	Retailer* getRetailer(int retailerIndex);
 };
 
 #endif // __ECOMMERCE_SYSTEM_H

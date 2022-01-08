@@ -6,15 +6,15 @@
 #include <string.h>
 #include <iostream>
 
-class Costumer
+class Costumer : public User
 {
 public:
-	Costumer(const User& user, int itemsSize = 10);
-	Costumer(const Costumer& other) = delete;
-	~Costumer();
-	void print() const;
+	Costumer(const char* userName,
+		const char* userPassword,
+		const Address& address);
+	virtual ~Costumer();
+	void print(std::ostream& os) const override;
 	friend std::ostream& operator<<(std::ostream& os, const Costumer& costumer);
-	bool addProduct(Product* product, int retailerIndex);
 	Order* payment();
 	bool operator< (const Costumer& rhs) const;
 	bool operator> (const Costumer& rhs) const;
@@ -22,11 +22,6 @@ public:
 	bool operator!= (const Costumer& rhs) const;
 
 private:
-	User user;
-	Item** items;
-	int itemsAmount;
-	int itemsSize;
-	bool resizeItems();
 	bool removeItems();
 	double getTotalPrice() const;
 };
